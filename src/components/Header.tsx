@@ -26,7 +26,7 @@ function HeaderFallback() {
           <div className="max-w-full rounded-full border border-neutral-200/80 dark:border-neutral-800/70 px-2 py-1">
             <ul className="flex items-center gap-4 sm:gap-6 md:gap-8 list-none flex-nowrap overflow-x-auto scrollbar-none -mx-2 px-2 sm:mx-0 sm:px-0">
               {ITEMS.map((key) => {
-                const href = key === "all" ? "/" : `/${key}`;
+                const href = key === "all" ? "/" : `/${key}/`;
                 return (
                   <li key={key} className="shrink-0">
                     <Link

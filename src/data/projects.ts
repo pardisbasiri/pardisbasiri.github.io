@@ -39,7 +39,7 @@ caption: "The final prototype of community feature after mentioned actions",
 
 { type: "text", content: "Next to these we created a mood board to guide the visual tone, then moved into interactive wireframing and prototyping the main task of the platform." },
 
-{ type: "text", content: "•  **Define**  \n We built low- and high-fidelity prototypes to integrate the main features: general safety information, a safety heat map with safe route navigation, and community-based safety feedback. \n We conducted multiple usability tests with target users, including **5-second testing** to evaluate first impressions and the clarity of key screens. We also used the **User Experience Questionnaire (UEQ)** to gather structured feedback on the overall experience and perception of the product. \n \n Here is one change we made based on the user testing: \n " }, 
+{ type: "text", content: "•  **Deliver**  \n We built low- and high-fidelity prototypes to integrate the main features: general safety information, a safety heat map with safe route navigation, and community-based safety feedback. \n We conducted multiple usability tests with target users, including **5-second testing** to evaluate first impressions and the clarity of key screens. We also used the **User Experience Questionnaire (UEQ)** to gather structured feedback on the overall experience and perception of the product. \n \n Here is one change we made based on the user testing: \n " }, 
 
 {
 type: "image",
