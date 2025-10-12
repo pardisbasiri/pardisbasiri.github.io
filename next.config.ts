@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
+const repo = "pardis-portfolio"; // ← change to your repo name (e.g., "pardis-portfolio")
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "export",           // generates static ./out
+  images: { unoptimized: true }, // needed for GitHub Pages
+  //basePath: isProd ? `/${repo}` : undefined,
+  //assetPrefix: isProd ? `/${repo}/` : undefined,
 };
 
 export default nextConfig;
