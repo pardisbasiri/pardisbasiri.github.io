@@ -1,3 +1,4 @@
+// src/app/(site)/[category]/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { CATEGORIES, getProjectBySlug, getAllProjects } from "@/data/projects";
@@ -27,9 +28,7 @@ export default async function ProjectDetailPage({
   return (
     <PageTemplate title={project.name} intro={project.subCategory} inset="roomy">
       <ProjectDetail project={project} />
-
       <div className="mt-12">
-        {/* BackLink uses useSearchParams → wrap in Suspense */}
         <Suspense fallback={null}>
           <BackLink category={cat} />
         </Suspense>
@@ -45,7 +44,5 @@ export function generateStaticParams() {
   }
   return params;
 }
-
-
 
 

@@ -7,7 +7,8 @@ export default function BackLink({ category }: { category: string }) {
   const sp = useSearchParams();
   const fromAll = sp.get("from") === "all";
 
-  const href = fromAll ? "/all" : `/${category}`;
+  // GH Pages-friendly hrefs
+  const href = fromAll ? "/" : `/${category}/`;
   const label = fromAll
     ? "All"
     : category.charAt(0).toUpperCase() + category.slice(1);

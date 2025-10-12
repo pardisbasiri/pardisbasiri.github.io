@@ -8,7 +8,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 const ITEMS = ["all", "design", "business", "technical"] as const;
 const capitalize = (s: string) => (s ? s[0].toUpperCase() + s.slice(1) : s);
 
-// Export a shell that provides the Suspense boundary
+// ---------- Public wrapper with Suspense ----------
 export default function Header() {
   return (
     <Suspense fallback={<HeaderFallback />}>
@@ -17,7 +17,7 @@ export default function Header() {
   );
 }
 
-// Fallback shown during SSR/streaming before hooks resolve (simple, non-active state)
+// ---------- Fallback (no active state; SSR-safe) ----------
 function HeaderFallback() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-neutral-950/70">
@@ -26,7 +26,7 @@ function HeaderFallback() {
           <div className="max-w-full rounded-full border border-neutral-200/80 dark:border-neutral-800/70 px-2 py-1">
             <ul className="flex items-center gap-4 sm:gap-6 md:gap-8 list-none flex-nowrap overflow-x-auto scrollbar-none -mx-2 px-2 sm:mx-0 sm:px-0">
               {ITEMS.map((key) => {
-                const href = key === "all" ? "/" : `/${key}/`;
+                const href = key === "all" ? "/" : `/${key}/`; // 👈 trailing slash for GH Pages
                 return (
                   <li key={key} className="shrink-0">
                     <Link
@@ -50,16 +50,28 @@ function HeaderFallback() {
   );
 }
 
-// The real header that uses hooks; wrapped in Suspense above
+// ---------- Interactive header (uses hooks) ----------
 function HeaderInner() {
-  const pathname = usePathname() || "/";
+  const pathnameRaw = usePathname() || "/";
   const search = useSearchParams();
   const fromAll = search.get("from") === "all";
 
-  // If from=all, ONLY "All" is active; otherwise match by pathname.
+  // Normalize path: ensure leading slash, remove trailing slash (except root)
+  const normalize = (p: string) => {
+    if (!p.startsWith("/")) p = `/${p}`;
+    if (p !== "/" && p.endsWith("/")) p = p.slice(0, -1);
+    return p;
+  };
+
+  const pathname = normalize(pathnameRaw);
+
+  // If coming from "All", force All active
   const isActive = (href: string) => {
-    if (fromAll) return href === "/all";
-    return pathname === href || pathname.startsWith(href + "/");
+    // All should be "/"
+    if (fromAll) return href === "/";
+    const normHref = normalize(href);
+    // exact or nested match (e.g., "/design" and "/design/safespot")
+    return pathname === normHref || pathname.startsWith(normHref + "/");
   };
 
   return (
@@ -69,7 +81,8 @@ function HeaderInner() {
           <div className="max-w-full rounded-full border border-neutral-200/80 dark:border-neutral-800/70 px-2 py-1">
             <ul className="flex items-center gap-4 sm:gap-6 md:gap-8 list-none flex-nowrap overflow-x-auto scrollbar-none -mx-2 px-2 sm:mx-0 sm:px-0">
               {ITEMS.map((key) => {
-                const href = key === "all" ? "/all" : `/${key}`;
+                // Use "/" for All, and "/{key}/" (with trailing slash) for categories
+                const href = key === "all" ? "/" : `/${key}/`;
                 const active = isActive(href);
                 return (
                   <li key={key} className="shrink-0">
@@ -96,4 +109,3 @@ function HeaderInner() {
     </header>
   );
 }
-
