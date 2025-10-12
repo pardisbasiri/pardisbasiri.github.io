@@ -6,7 +6,6 @@ import type { Category } from "@/types/project";
 
 export default function HomePage() {
   const projects = getProjectsByCategory("all");
-
   return (
     <PageTemplate
       title="All Projects"
@@ -23,10 +22,6 @@ export default function HomePage() {
           />
         ))}
       </div>
-
-      {projects.length === 0 && (
-        <p className="mt-6 italic opacity-70">No projects yet.</p>
-      )}
     </PageTemplate>
   );
 }

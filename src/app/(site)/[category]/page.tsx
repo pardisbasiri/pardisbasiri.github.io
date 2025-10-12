@@ -36,12 +36,12 @@ export default async function ProjectDetailPage({
   );
 }
 
+
 export function generateStaticParams() {
-  const params: { category: string; slug: string }[] = [];
-  for (const p of getAllProjects()) {
-    for (const c of p.categories) params.push({ category: c, slug: p.slug });
-  }
-  return params;
+  return [
+    { category: "all" },      // ← include this
+    { category: "design" },
+    { category: "business" },
+    { category: "technical" },
+  ];
 }
-
-
