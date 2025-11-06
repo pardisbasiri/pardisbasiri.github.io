@@ -80,6 +80,82 @@ caption: "Sample Snapshots"
   ],
 },
 
+// DANCE EMOTION MAP
+{
+  slug: "dance-emotion-map",
+  name: "Harmonic Motion",
+  categories: ["technical"],
+  subCategory:
+    "Affective Computing, Multisensory Interaction, Motion Analysis, Haptics, UX Research, Prototyping, Data Analysis, Python, Arduino/Teensy",
+  image: {
+    src: "/images/danceemotion.png",
+    alt: "Minimalist abstract cover showing two Latin dancers with flowing lines and data dots representing emotional connection",
+    width: 3000,
+    height: 2000,
+    aspectRatio: "3/2"
+  },
+  overview:
+    "A Research Proposal and Under Development Prototype for Measuring Musical and Interpersonal Synchrony in Latin Dance.",
+  description:
+    "This study explores synchrony in Latin dance as a bridge between affective computing and embodied emotion research. The goal is to measure how synchronized two dancers are with the music and with each other using motion and touch data. By quantifying timing, energy, and connection patterns, we aim to understand whether physical synchrony can serve as a measurable indicator of emotional connection.",
+  role: [
+    "Designed research methodology and synchrony metrics framework",
+    "Implementing data processing and feature extraction in Python",
+    "Planned prototype setup for IMU and FSR-based sensing and visualization"
+  ],
+  process: [
+    {
+      type: "text",
+      content:
+        "•  **Research Goal**  \n To measure how synchronized two Latin dancers are with the music and with each other, by analyzing body movement timing and touch pressure as indicators of emotional and physical connection.",
+    },
+    {
+      type: "text",
+      content:
+        "•  **Research Questions**  \n – How well do individual dancers align their movement features (e.g., energy, smoothness, rhythm) with the emotional features of Latin music?  \n – How well are two dancers synchronized with each other in timing, energy, and connection pressure?  \n – Can physical synchrony (in motion and touch) serve as a measurable indicator of emotional connection between partners?",
+    },
+    {
+      type: "text",
+      content:
+        "•  **Methodology – Step 1: Measuring Individual Synchrony with Music**  \n **Data:** IMU/accelerometer data from each dancer; audio features from the music.  \n **Music Features (via Librosa):** tempo, energy (RMS), spectral flux, and mode (valence).  \n **Movement Features (via IMU):**  \n – RMS of acceleration → movement energy  \n – Variance → smoothness  \n – Jerk → expressivity  \n – Autocorrelation → rhythmic stability (beat-following accuracy)  \n **Analysis:** Cross-correlate motion features with the beat and energy profile of the song to assess alignment. Higher correlation indicates stronger individual synchrony with music.",
+    },
+  
+    {
+      type: "text",
+      content:
+        "•  **Methodology – Step 2: Measuring Interpersonal Synchrony**  \n **Data:** Motion features from both dancers + touch data from FSR sensors (hands/elbows).  \n **Features:**  \n – Cross-correlation of acceleration signals → movement synchrony between partners  \n – Pressure variance and rhythm in FSR readings → consistency and timing of touch connection  \n – Combined movement-touch synchrony index (weighted average or PCA-derived composite).  \n **Analysis:** Check if higher synchrony with music (from Step 1) predicts higher interpersonal synchrony, and correlate synchrony metrics with perceived emotional connection (optional subjective rating).",
+    },
+    {
+      type: "text",
+      content:
+        "•  **Tools and Techniques**  \n **Music Analysis:** Librosa – extract tempo, energy, valence/arousal  \n **Motion Analysis:** numpy, scipy.signal – compute RMS, jerk, autocorrelation, cross-correlation  \n **Touch Analysis:** FSR sensors – measure hand/elbow pressure and consistency  \n **Modeling:** Correlation, Regression – quantify relationships between synchrony and emotion  \n **Visualization:** Heatmaps, time-aligned plots, synchrony scatterplots – show patterns of alignment and connection.",
+    },
+  ],
+  tool: [
+    "Python librosa",
+    "numpy",
+    "scipy",
+    "pandas",
+    "matplotlib",
+    "Arduino",
+    "Teensy 3.6",
+    "Figma"
+  ],
+  outcome: [
+    {
+      type: "text",
+      content:
+        "Currently Research Proposal \n Expecting: A linked audio–movement–touch dataset, quantitative analysis showing relationships between music arousal and movement energy and synchrony, and a functional haptic prototype that communicates musical emotion through touch."
+    },
+  ],
+  lessons: [
+    "Operational definitions matter. Clear feature choices make emotion–movement links interpretable.",
+    "Simple models with good features can reveal strong patterns before jumping to complex architectures.",
+    "Haptic mappings benefit from tight coupling to musical structure. Rhythm-aligned pulses improved perceived meaning."
+  ]
+},
+
+
 // SETTLE SUPPORT
 {
   slug: "settles-support",
