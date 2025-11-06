@@ -6,14 +6,14 @@ export const PROJECTS: Project[] = [
   {
   slug: "safespot",
   name: "Safespot",
-  categories: ["design"], // Design project
+  categories: ["design"], 
   subCategory: "UX Research, Prototyping, Usability Testing, Interaction Design, User Personas, A/B Testing, Survey, Interview",
   image: {
-  src: "/images/safespot.png", // ← leading slash, maps to public/images/safespot.png
+  src: "/images/safespot.png", 
   alt: "Safespot app mockups showing safety heat map and route guidance",
-  width: 3000,           // 👈 add this
-  height: 2000,          // 👈 and this
-  aspectRatio: "3/2",          // try "16/9" if you prefer a wider crop
+  width: 3000,          
+  height: 2000,          
+  aspectRatio: "3/2",          
 },
   overview:
     "An application designed to help solo travelers, especially women, explore confidently through real-time insights, community feedback and safety based navigation map.",
@@ -25,13 +25,12 @@ export const PROJECTS: Project[] = [
   process: [
 { type: "text", content: "We followed the Double Diamond framework because it helped us stay focused while still giving space to explore. It let us dive deep into understanding real user needs before narrowing down and building a solution that truly made sense for them. \n \n •  **Discover**  \n We began by identifying the core problem: the lack of reliable safety information for solo travelers, especially women. Through informal interviews and market research, we explored how this gap impacted travel experiences and decisions and we validated the problem. \n \n •  **Define**  \n In the Value Proposition phase, we brainstormed how to create meaningful value for users. This led us to develop a detailed Customer Profile based on our user needs. From there, we defined our core offering, an app that blends up-to-date safety information with community insights. \n We came up with different possible approaches to solve the problem, compared them with current solutions in the market, and again through user research, we chose the main features and core offering. As an example, we found out most of the users are always trying to get the safety information from a trusted person instead of relying on online data, because safety is a subjective feature. Mentally, they can evaluate if a place is considered safe to my friend based on her personality, it is very safe to me based on my definition of safety. These unconscious thinking processes were detected during user interviews and led us to deciding to have a community feedback feature. \n \n •  **Develop**  \n After that, using a Design Sprint approach, we explored multiple directions for developing and rapidly ideated on key features. As an example, after we detected we need to build a trustable community for users, because asking someone you know is not always an option, we proposed to let users write stories about their safety experience somewhere, label it with day/night or accessibility safety for clean categorization, and let users add pictures to their writing so it will have an evidence for their claim. Other people can give opinion on their claim, so more support will create more trust, and we considered to have a validation mechanism for users based on their activity in this community (activities of informing others). \n We also understood the safety situation of the place highly depends on the time. It can be different in one or two years, for example, so we decided to put a date for the information so up-to-date information will again add to that trustability factor." },
 
-// 👇 inline image between paragraphs
 {
 type: "image",
 image: {
-src: "/images/safespot-process-1.png", // put the file under /public/images/
+src: "/images/safespot-process-1.png", 
 alt: "Affinity clusters from user interviews",
-width: 1915,  // natural pixel size
+width: 1915,  
 height: 1277,
 },
 caption: "The final prototype of community feature after mentioned actions",
@@ -45,9 +44,9 @@ caption: "The final prototype of community feature after mentioned actions",
 type: "image",
 
 image: {
-src: "/images/safespot-process-2.png", // put the file under /public/images/
+src: "/images/safespot-process-2.png", 
 alt: "Affinity clusters from user interviews",
-width: 1915,  // natural pixel size
+width: 1915, 
 height: 1277,
 },
 caption: "Introducing new component",
@@ -65,9 +64,9 @@ caption: "Introducing new component",
 {
 type: "image",
 image: {
-src: "/images/safespot-outcome-1.png",  // put the file under /public/images/
+src: "/images/safespot-outcome-1.png",  
 alt: "Before/after completion chart",
-width: 1700,   // real pixel size
+width: 1700,   
 height: 1133
 },
 caption: "Sample Snapshots"
@@ -95,7 +94,7 @@ caption: "Sample Snapshots"
     aspectRatio: "3/2"
   },
   overview:
-    "A Research Proposal and Under Development Prototype for Measuring Musical and Interpersonal Synchrony in Latin Dance.",
+    "A Research proposal and under development prototype for measuring musical and interpersonal synchrony in latin dance.",
   description:
     "This study explores synchrony in Latin dance as a bridge between affective computing and embodied emotion research. The goal is to measure how synchronized two dancers are with the music and with each other using motion and touch data. By quantifying timing, energy, and connection patterns, we aim to understand whether physical synchrony can serve as a measurable indicator of emotional connection.",
   role: [
@@ -177,10 +176,10 @@ caption: "Sample Snapshots"
     {
 type: "image",
 image: {
-src: "/images/settlesupport-outcome.png",  // put the file under /public/images/
+src: "/images/settlesupport-outcome.png",  
 alt: "Before/after completion chart",
 aspectRatio: "2/3",
-width: 3000,   // real pixel size
+width: 3000,   
 height: 2000
 
 },
@@ -242,16 +241,14 @@ export function getProjectBySlug(slug: string): Project | undefined {
   return PROJECTS.find((p) => p.slug === slug);
 }
 
-/** Use the first category as the canonical path segment */
 export function getCanonicalCategory(p: Project): Category {
   return p.categories[0];
 }
 
-/** Convenience: build the detail URL for a project */
 export function getProjectPath(project: Project, category?: Category | "all") {
   if (category === "all") {
     const canon = getCanonicalCategory(project);
-    return `/${canon}/${project.slug}?from=all`; // 👈 remember we came from All
+    return `/${canon}/${project.slug}?from=all`; 
   }
   const cat = category ?? getCanonicalCategory(project);
   return `/${cat}/${project.slug}`;
