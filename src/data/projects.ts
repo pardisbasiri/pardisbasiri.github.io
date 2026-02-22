@@ -85,72 +85,85 @@ caption: "Sample Snapshots"
   name: "Harmonic Motion",
   categories: ["technical"],
   subCategory:
-    "Affective Computing, Multisensory Interaction, Motion Analysis, Haptics, UX Research, Prototyping, Data Analysis, Python, Arduino/Teensy",
+    "Multisensory Interaction, Haptics & Visual Feeback, UX Research, Prototype Testing, Arduino",
   image: {
     src: "/images/danceemotion.png",
-    alt: "Minimalist abstract cover showing two Latin dancers with flowing lines and data dots representing emotional connection",
+    alt: "Image of the hardware prototype",
     width: 3000,
     height: 2000,
     aspectRatio: "3/2"
   },
   overview:
-    "A Research proposal and under development prototype for measuring musical and interpersonal synchrony in latin dance.",
+    "Hardware prototype of a multisensory wearable system for real-time feedback on hand connection in partnered dance.",
   description:
-    "This study explores synchrony in Latin dance as a bridge between affective computing and embodied emotion research. The goal is to measure how synchronized two dancers are with the music and with each other using motion and touch data. By quantifying timing, energy, and connection patterns, we aim to understand whether physical synchrony can serve as a measurable indicator of emotional connection.",
+    "In partnered dance, pressure between connection points is one of the main ways partners communicate and stay in sync. But feedback about whether that connection is right usually comes from an external source, and it’s often delayed, not always accurate, or sometimes missed entirely. I designed this project to fill that gap by creating a system that can sense connection pressure and give immediate feedback during the interaction itself. The goal was not just to build a prototype, but to explore how feedback can be designed in a way that actually supports people in the moment. I developed a wearable system that captures continuous pressure input and translates it into feedback through vibration and light. A key decision was to use a personalized baseline instead of fixed thresholds, so the system adapts to each pair rather than enforcing a single definition of “correct” interaction. I also did a deep literature review and tested the system through multiple iterations to understand how different feedback modalities behave. This helped me compare trade-offs—like how visual feedback can pull attention away, while vibrotactile feedback integrates more naturally into the interaction. Overall, the project focuses on designing feedback that works with how people already perceive and communicate, instead of interrupting it.",
   role: [
-    "Designed research methodology and synchrony metrics framework",
-    "Implementing data processing and feature extraction in Python",
-    "Planned prototype setup for IMU and FSR-based sensing and visualization"
+    "Led the project end-to-end: concept, literature review, system design, hardware prototyping, and implementation",
+    "Planned and organized testing sessions, including participant recruitment",
+    "Conducted user studies, data collection, and analysis, iterating on the system based on finding"
   ],
   process: [
     {
-      type: "text",
-      content:
-        "•  **Research Goal**  \n To measure how synchronized two Latin dancers are with the music and with each other, by analyzing body movement timing and touch pressure as indicators of emotional and physical connection.",
-    },
-    {
-      type: "text",
-      content:
-        "•  **Research Questions**  \n – How well do individual dancers align their movement features (e.g., energy, smoothness, rhythm) with the emotional features of Latin music?  \n – How well are two dancers synchronized with each other in timing, energy, and connection pressure?  \n – Can physical synchrony (in motion and touch) serve as a measurable indicator of emotional connection between partners?",
-    },
-    {
-      type: "text",
-      content:
-        "•  **Methodology – Step 1: Measuring Individual Synchrony with Music**  \n **Data:** IMU/accelerometer data from each dancer; audio features from the music.  \n **Music Features (via Librosa):** tempo, energy (RMS), spectral flux, and mode (valence).  \n **Movement Features (via IMU):**  \n – RMS of acceleration → movement energy  \n – Variance → smoothness  \n – Jerk → expressivity  \n – Autocorrelation → rhythmic stability (beat-following accuracy)  \n **Analysis:** Cross-correlate motion features with the beat and energy profile of the song to assess alignment. Higher correlation indicates stronger individual synchrony with music.",
-    },
-  
-    {
-      type: "text",
-      content:
-        "•  **Methodology – Step 2: Measuring Interpersonal Synchrony**  \n **Data:** Motion features from both dancers + touch data from FSR sensors (hands/elbows).  \n **Features:**  \n – Cross-correlation of acceleration signals → movement synchrony between partners  \n – Pressure variance and rhythm in FSR readings → consistency and timing of touch connection  \n – Combined movement-touch synchrony index (weighted average or PCA-derived composite).  \n **Analysis:** Check if higher synchrony with music (from Step 1) predicts higher interpersonal synchrony, and correlate synchrony metrics with perceived emotional connection (optional subjective rating).",
-    },
-    {
-      type: "text",
-      content:
-        "•  **Tools and Techniques**  \n **Music Analysis:** Librosa – extract tempo, energy, valence/arousal  \n **Motion Analysis:** numpy, scipy.signal – compute RMS, jerk, autocorrelation, cross-correlation  \n **Touch Analysis:** FSR sensors – measure hand/elbow pressure and consistency  \n **Modeling:** Correlation, Regression – quantify relationships between synchrony and emotion  \n **Visualization:** Heatmaps, time-aligned plots, synchrony scatterplots – show patterns of alignment and connection.",
-    },
+type: "text",
+content:
+"• Problem & Opportunity \n In partnered dance, hand connection pressure is a key communication channel, but feedback about it usually comes from an external source and is often delayed, inconsistent, or missed. This creates a gap in real-time awareness. \n The opportunity was to design a system that makes this implicit signal visible and actionable during the interaction itself.",
+},
+
+{
+type: "text",
+content:
+"• Design Approach \n Instead of correcting movement, I focused on supporting interaction. The system is built around translating a continuous physical signal (pressure) into minimal, real-time feedback that helps users adjust without interrupting their flow.",
+},
+
+{
+type: "text",
+content:
+"• Key Design Decisions \n – Personalized baseline: Adapt feedback to each pair instead of using fixed thresholds \n – Event-based feedback: Trigger only when connection drops, avoiding constant noise \n – Modality exploration: Compare vibration, visual, and combined feedback \n – Non-intrusive design: Keep feedback lightweight and aligned with existing sensory channels",
+},
+
+{
+type: "text",
+content:
+"• Prototyping & System Build \n I designed and built a wearable glove-based system with embedded pressure sensors and wrist-mounted feedback (vibration + LEDs). \n The system processes data in real time (sensing → normalization → event detection → feedback), with logic implemented on Arduino and a lightweight interface for control and logging.",
+},
+
+{
+type: "text",
+content:
+"• Iteration & Testing \n The system was refined through two stages of testing. Early pilot sessions helped adjust sensor placement, feedback patterns, and wearability. Based on these insights, I improved signal stability, feedback clarity, and overall usability before final testing.",
+},
+
+{
+type: "text",
+content:
+"• Validation \n I ran a user study with beginner dancers to compare feedback conditions (none, visual, vibration, combined). Both behavioral data (connection stability) and user feedback were collected to evaluate effectiveness and usability across modalities.",
+},
+
+{
+type: "text",
+content:
+"• Outcome Insight \n Vibrotactile feedback performed best because it integrates naturally into the interaction without demanding attention, while visual feedback often disrupted focus. This highlighted the importance of designing feedback that works with the context, not against it.",
+},
   ],
   tool: [
-    "Python librosa",
-    "numpy",
-    "scipy",
-    "pandas",
-    "matplotlib",
     "Arduino",
-    "Teensy 3.6",
-    "Figma"
+    "Pure Data",
+    "FSR sensors",
+    "Vibrotactile actuators",
+    "LEDs",
+    "Google Forms",
   ],
   outcome: [
     {
-      type: "text",
-      content:
-        "Currently Research Proposal \n Expecting: A linked audio–movement–touch dataset, quantitative analysis showing relationships between music arousal and movement energy and synchrony, and a functional haptic prototype that communicates musical emotion through touch."
-    },
+type: "text",
+content:
+"A fully functional wearable prototype and evaluated interactive system for real-time feedback on hand connection in partnered dance. \n\nThe study showed that vibrotactile feedback significantly improves awareness and correction of connection loss while maintaining natural interaction flow. Visual feedback, although interpretable, introduced attentional disruption. \n\nThe project contributes a novel interaction design approach by treating hand connection as a measurable and actionable signal, shifting focus from movement observation to relational interaction.",
+},
   ],
   lessons: [
-    "Operational definitions matter. Clear feature choices make emotion–movement links interpretable.",
-    "Simple models with good features can reveal strong patterns before jumping to complex architectures.",
-    "Haptic mappings benefit from tight coupling to musical structure. Rhythm-aligned pulses improved perceived meaning."
+    "Feedback effectiveness is highly context dependent, adding modalities can reduce performance if they compete for attention",
+    "People often feel confident even when they’re not aware of errors, analyzing system logs alongside user feedback helped uncover mismatches and interpret behavior more accurately",
+    "Iteration through real testing is critical, small changes like sensor placement and vibration patterns had a big impact on usability"
   ]
 },
 
