@@ -96,55 +96,55 @@ caption: "Sample Snapshots"
   overview:
     "Hardware prototype of a multisensory wearable system for real-time feedback on hand connection in partnered dance.",
   description:
-    "In partnered dance, pressure between connection points is one of the main ways partners communicate and stay in sync. But feedback about whether that connection is right usually comes from an external source, and it’s often delayed, not always accurate, or sometimes missed entirely. I designed this project to fill that gap by creating a system that can sense connection pressure and give immediate feedback during the interaction itself. The goal was not just to build a prototype, but to explore how feedback can be designed in a way that actually supports people in the moment. I developed a wearable system that captures continuous pressure input and translates it into feedback through vibration and light. A key decision was to use a personalized baseline instead of fixed thresholds, so the system adapts to each pair rather than enforcing a single definition of “correct” interaction. I also did a deep literature review and tested the system through multiple iterations to understand how different feedback modalities behave. This helped me compare trade-offs—like how visual feedback can pull attention away, while vibrotactile feedback integrates more naturally into the interaction. Overall, the project focuses on designing feedback that works with how people already perceive and communicate, instead of interrupting it.",
+    "In partnered dance, pressure between connection points is one of the main ways partners communicate and stay in sync.\nBut feedback about whether that connection is right usually comes from an external source, and it’s often delayed, not always accurate, or sometimes missed entirely.\nI designed this project to fill that gap by creating a system that can sense connection pressure and give immediate feedback during the interaction itself.\nThe goal was not just to build a prototype, but to explore how feedback can be designed in a way that actually supports people in the moment.\n\nI developed a wearable system that captures continuous pressure input and translates it into feedback through vibration and light.\nA key decision was to use a personalized baseline instead of fixed thresholds, so the system adapts to each pair rather than enforcing a single definition of “correct” interaction.\nI also did a deep literature review and tested the system through multiple iterations to understand how different feedback modalities behave.\n\nThis helped me compare trade-offs, like how visual feedback can pull attention away, while vibrotactile feedback integrates more naturally into the interaction.\nOverall, the project focuses on designing feedback that works with how people already perceive and communicate, instead of interrupting it.",
   role: [
     "Led the project end-to-end: concept, literature review, system design, hardware prototyping, and implementation",
     "Planned and organized testing sessions, including participant recruitment",
     "Conducted user studies, data collection, and analysis, iterating on the system based on finding"
   ],
   process: [
-    {
-type: "text",
-content:
-"• Problem & Opportunity \n In partnered dance, hand connection pressure is a key communication channel, but feedback about it usually comes from an external source and is often delayed, inconsistent, or missed. This creates a gap in real-time awareness. \n The opportunity was to design a system that makes this implicit signal visible and actionable during the interaction itself.",
-},
+  {
+    type: "text",
+    content:
+      "**• Problem & Opportunity** \n In partnered dance, hand connection pressure is a key communication channel, but feedback about it usually comes from an external source and is often delayed, inconsistent, or missed. This creates a gap in real-time awareness. \n The opportunity was to design a system that makes this implicit signal visible and actionable during the interaction itself.",
+  },
 
-{
-type: "text",
-content:
-"• Design Approach \n Instead of correcting movement, I focused on supporting interaction. The system is built around translating a continuous physical signal (pressure) into minimal, real-time feedback that helps users adjust without interrupting their flow.",
-},
+  {
+    type: "text",
+    content:
+      "**• Design Approach** \n Instead of correcting movement, I focused on supporting interaction. The system is built around translating a continuous physical signal (pressure) into minimal, real-time feedback that helps users adjust without interrupting their flow.",
+  },
 
-{
-type: "text",
-content:
-"• Key Design Decisions \n – Personalized baseline: Adapt feedback to each pair instead of using fixed thresholds \n – Event-based feedback: Trigger only when connection drops, avoiding constant noise \n – Modality exploration: Compare vibration, visual, and combined feedback \n – Non-intrusive design: Keep feedback lightweight and aligned with existing sensory channels",
-},
+  {
+    type: "text",
+    content:
+      "**• Key Design Decisions** \n -\tPersonalized baseline: Adapt feedback to each pair instead of using fixed thresholds \n -\tEvent-based feedback: Trigger only when connection drops, avoiding constant noise \n -\tModality exploration: Compare vibration, visual, and combined feedback \n -\tSensor placement: Positioning of pressure sensors was informed by literature review and refined through pilot testing to ensure stable and meaningful readings \n -\tAdaptive feedback intensity: Vibration feedback increases over time when connection loss persists, making prolonged errors more noticeable without overwhelming the user",
+  },
 
-{
-type: "text",
-content:
-"• Prototyping & System Build \n I designed and built a wearable glove-based system with embedded pressure sensors and wrist-mounted feedback (vibration + LEDs). \n The system processes data in real time (sensing → normalization → event detection → feedback), with logic implemented on Arduino and a lightweight interface for control and logging.",
-},
+  {
+    type: "text",
+    content:
+      "**• Prototyping & System Build** \n I designed and built a wearable glove-based system with embedded pressure sensors and wrist-mounted feedback (vibration + LEDs). \n The system processes data in real time (sensing → normalization → event detection → feedback), with logic implemented on Arduino and a lightweight interface for control and logging.",
+  },
 
-{
-type: "text",
-content:
-"• Iteration & Testing \n The system was refined through two stages of testing. Early pilot sessions helped adjust sensor placement, feedback patterns, and wearability. Based on these insights, I improved signal stability, feedback clarity, and overall usability before final testing.",
-},
+  {
+    type: "text",
+    content:
+      "**• Iteration & Testing** \n The system was refined through two stages of testing. Early pilot sessions helped adjust sensor placement, feedback patterns, and wearability. Based on these insights, I improved signal stability, feedback clarity, and overall usability before final testing.",
+  },
 
-{
-type: "text",
-content:
-"• Validation \n I ran a user study with beginner dancers to compare feedback conditions (none, visual, vibration, combined). Both behavioral data (connection stability) and user feedback were collected to evaluate effectiveness and usability across modalities.",
-},
+  {
+    type: "text",
+    content:
+      "**• Validation** \n I ran a user study with 12 beginner dancers to compare feedback conditions (none, visual, vibration, combined). Both behavioral data (connection stability) and user feedback were collected to evaluate effectiveness and usability across modalities.",
+  },
 
-{
-type: "text",
-content:
-"• Outcome Insight \n Vibrotactile feedback performed best because it integrates naturally into the interaction without demanding attention, while visual feedback often disrupted focus. This highlighted the importance of designing feedback that works with the context, not against it.",
-},
-  ],
+  {
+    type: "text",
+    content:
+      "**• Outcome Insight** \n Vibrotactile feedback performed best because it integrates naturally into the interaction without demanding attention, while visual feedback often disrupted focus. This highlighted the importance of designing feedback that works with the context, not against it.",
+  },
+],
   tool: [
     "Arduino",
     "Pure Data",
