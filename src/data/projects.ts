@@ -87,7 +87,7 @@ caption: "Sample Snapshots"
   subCategory:
     "Multisensory Interaction, Haptics & Visual Feeback, UX Research, Prototype Testing, Arduino",
   image: {
-    src: "/images/danceemotion.png",
+    src: "/images/danceemotion.jpg",
     alt: "Image of the hardware prototype",
     width: 3000,
     height: 2000,
